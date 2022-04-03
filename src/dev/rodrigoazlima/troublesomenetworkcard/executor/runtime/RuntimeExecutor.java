@@ -5,6 +5,7 @@ import dev.rodrigoazlima.troublesomenetworkcard.executor.ExecutorResultChewer;
 
 import java.io.*;
 import java.util.Arrays;
+import java.util.Date;
 
 public class RuntimeExecutor implements Executor {
 
@@ -23,20 +24,20 @@ public class RuntimeExecutor implements Executor {
             BufferedReader stdError = new BufferedReader(new InputStreamReader(proc.getErrorStream()));
 
             // Read the output from the command
-            System.out.println("Standard output of the command:\n");
+            System.out.println(new Date() + " " + "Standard output of the command:\n");
             StringBuilder outBuilder = new StringBuilder();
             StringBuilder errBuilder = new StringBuilder();
             String out = null;
             while ((out = stdInput.readLine()) != null) {
-                System.out.println(out);
+                System.out.println(new Date() + " " + out);
                 outBuilder.append(out);
             }
 
             // Read any errors from the attempted command
             String err = null;
-            System.err.println("Standard error of the command (if any):\n");
+            System.err.println(new Date() + " Standard error of the command (if any):\n");
             while ((err = stdError.readLine()) != null) {
-                System.err.println(err);
+                System.err.println(new Date() + " " + err);
                 errBuilder.append(err);
             }
             if (chewer != null) {

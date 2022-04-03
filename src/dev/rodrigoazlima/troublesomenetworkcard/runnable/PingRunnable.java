@@ -13,7 +13,7 @@ public class PingRunnable implements Runnable {
     public static final String[][] resetCommand = {{"ipconfig", "/release"},//
             {"ipconfig", "/flushdns"},//
             {"ipconfig", "/renew"},//
-            {"netsh", "int", "ip", "reset "},//
+            {"netsh", "int", "ip", "reset"},//
             {"netsh", "winsock", "reset"}};
     public static final int TIMED_OUT_MAX_BEFORE_RESET = 3;
 
